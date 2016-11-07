@@ -6,13 +6,13 @@ import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import com.stefanini.model.Denuncia;
-import com.stefanini.repository.DenunciaRepository;
+import com.stefanini.repository.DenuncianteRepository;
 
 @Stateless
-public class DenunciaService {
+public class DenuncianteService {
 
     @Inject
-    private DenunciaRepository denunciaRepository;
+    private DenuncianteRepository denunciaRepository;
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public void incluir(Denuncia denuncia){
