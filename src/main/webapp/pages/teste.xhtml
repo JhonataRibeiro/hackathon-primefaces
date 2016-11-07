@@ -8,7 +8,10 @@
 </h:head>
 <h:body>
     <h:form>
-         <p:commandButton value="Chamar Bean" action="#{agenteMB.chamar()}"></p:commandButton>
+    <p:outputText value="#{agenteMB.agente.nome}" /><br/>
+   <!--  <h:outputText value="#{param['dtContratacao']}" /><br/>
+    <h:outputText value="#{param['tpContratacao']}" /><br/> -->
+         <!-- <p:commandButton value="Chamar Bean" action="#{agenteMB.chamar()}"></p:commandButton> -->
     </h:form>
 </h:body>
 </html>
