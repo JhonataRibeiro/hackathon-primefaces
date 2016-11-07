@@ -11,16 +11,21 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:outputLabel for="Nome" value="Nome:" />
-		<p:inputText id="Nome" value="#{agenteMB.agente.nome}" />
-		<br/>
-		<!-- <p:outputLabel for="dtContratacao" value="Data de contratação:" />
-		<p:calendar id="dtContratacao" value="#{agenteMB.agente.dtContratacao}" showOn="button" />
-		<br/>
-		<p:outputLabel for="tempoServico" value="Tempo de serviços" />
-		<p:inputText id="tempoServico" value="#{agenteMB.agente.tempoServico}" />
-		<br/> -->
-		<p:commandButton value="Salvar" action="#{agenteMB.incluir()}"></p:commandButton>
+		<p:panel header="Cadastro de agente">
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<h:outputText value="Nome *" />
+				<p:inputText id="Nome" value="#{agenteMB.agente.nome}" />
+				
+				<h:outputText value="Data de contratação *" />
+				<p:calendar id="dtContratacao"
+					value="#{agenteMB.agente.dtContratacao}" showOn="button" />
+				
+				<h:outputText value="Tempo de serviço *" />
+				<p:inputText id="tempoServico"
+					value="#{agenteMB.agente.tempoServico}" />
+				<p:commandButton value="Salvar" action="#{agenteMB.incluir()}"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
 	</h:form>
 </h:body>
 </html>

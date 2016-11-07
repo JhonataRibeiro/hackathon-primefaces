@@ -31,8 +31,7 @@ public class AgenteBean {
 	public String incluir() {
 		//agenteService.incluir(agente);
 		//chamar("fidjsao");
-		System.out.println("nome " + this.agente.getNome());
-		return "/pages/teste";
+		return "pages/teste?faces-redirect=true&nome=teste";
     }
 
 
