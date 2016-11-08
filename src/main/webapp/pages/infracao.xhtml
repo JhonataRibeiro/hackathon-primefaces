@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="Cadastro de infração">
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<p:outputLabel for="infracao" value="Agente" />
+				<p:selectOneMenu id="infracao" value="#{selectOneMenuView.console}"
+					style="width:125px">
+					<f:selectItem itemLabel="Agente 1" itemValue="03986726101" />
+					<f:selectItem itemLabel="Agente 2" itemValue="03986726102" />
+					<f:selectItem itemLabel="Agente 3" itemValue="03986726104" />
+				</p:selectOneMenu>
+				<p:commandButton value="Salvar"
+					action="#{agenteMB.incluir(agenteMB.agente)}"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

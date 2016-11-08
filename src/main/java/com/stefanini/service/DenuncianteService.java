@@ -11,12 +11,12 @@ import com.stefanini.repository.DenuncianteRepository;
 @Stateless
 public class DenuncianteService {
 
-    @Inject
-    private DenuncianteRepository denunciaRepository;
+	@Inject
+	private DenuncianteRepository denunciaRepository;
 
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
-    public void incluir(Denuncia denuncia){
-        denunciaRepository.incluir(denuncia);
-    }
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void incluir(Denuncia denuncia) {
+		denunciaRepository.incluir(denuncia);
+	}
 
 }

@@ -13,17 +13,24 @@
 	<h:form>
 		<p:panel header="Cadastro de agente">
 			<h:panelGrid columns="2" columnClasses="label, value">
-				<h:outputText value="Nome *" />
-				<p:inputText id="Nome" value="#{agenteMB.agente.nome}" />
 				
-				<h:outputText value="Data de contratação *" />
-				<p:calendar id="dtContratacao"
-					value="#{agenteMB.agente.dtContratacao}" showOn="button" />
+				<h:outputText value="Placa *" />
+				<p:inputText id="placa" value="#{veiculoMB.veiculos.placa}" />
+				
+				<h:outputText value="Cpf *" />
+				<p:inputText id="cpf" value="#{veiculoMB.veiculos.cpfProprietario}" />
+				
+				<h:outputText value="Modelo *" />
+				<p:inputText id="modelo" value="#{veiculoMB.veiculos.idModelo}" />
+				
+				<h:outputText value="UF *" />
+				<p:inputText id="uf" value="#{veiculoMB.veiculos.uf}" />
+				
 				
 				<h:outputText value="Tempo de serviço *" />
 				<p:inputText id="tempoServico"
 					value="#{agenteMB.agente.tempoServico}" />
-				<p:commandButton value="Salvar" action="#{agenteMB.incluir(agenteMB.agente)}"></p:commandButton>
+				<p:commandButton value="Salvar" action="#{veiculoMB.incluir(veiculoMB.veiculos)}"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
 	</h:form>

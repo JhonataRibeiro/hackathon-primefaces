@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import com.stefanini.model.Agente;
 
 public class AgenteRepository {
+	
 	@Inject
 	private EntityManager manager;
 
@@ -25,7 +26,7 @@ public class AgenteRepository {
 	
 	//todo trocar model
 	public List<Agente> lista() {
-		return this.manager.createQuery("select c from denuncia c", Agente.class)
+		return this.manager.createQuery("select c from Agente c", Agente.class)
 				.getResultList();
 	}
 }
