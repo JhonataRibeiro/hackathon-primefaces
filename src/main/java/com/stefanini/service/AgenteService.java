@@ -14,6 +14,7 @@ import com.stefanini.repository.AgenteRepository;
 public class AgenteService {
 	@Inject
 	private AgenteRepository agenteRepository;
+	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	
 	public void incluir(Agente agente) {
