@@ -6,7 +6,6 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.stefanini.model.Infracoes;
 import com.stefanini.model.Proprietario;
 import com.stefanini.service.PropietarioService;
 
@@ -24,6 +23,14 @@ public class PropietarioBean implements Serializable{
 	
 	@Inject
 	PropietarioService propietarioService;
+	
+	public Proprietario getPropietario() {
+		return propietario;
+	}
+
+	public void setPropietario(Proprietario propietario) {
+		this.propietario = propietario;
+	}
 	
 	public void inlcuir(Proprietario proprietario) {
 		propietarioService.incluir(proprietario);
