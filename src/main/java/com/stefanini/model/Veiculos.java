@@ -4,6 +4,8 @@ package com.stefanini.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -14,8 +16,6 @@ import javax.persistence.Table;
 public class Veiculos implements java.io.Serializable {
 
 	private String placa;
-	private int cpfProprietario;
-	private int idModelo;
 	private String uf;
 
 	public Veiculos() {
@@ -23,8 +23,6 @@ public class Veiculos implements java.io.Serializable {
 
 	public Veiculos(String placa, int cpfProprietario, int idModelo, String uf) {
 		this.placa = placa;
-		this.cpfProprietario = cpfProprietario;
-		this.idModelo = idModelo;
 		this.uf = uf;
 	}
 
@@ -39,24 +37,6 @@ public class Veiculos implements java.io.Serializable {
 		this.placa = placa;
 	}
 
-	@Column(name = "cpfProprietario", nullable = false)
-	public int getCpfProprietario() {
-		return this.cpfProprietario;
-	}
-
-	public void setCpfProprietario(int cpfProprietario) {
-		this.cpfProprietario = cpfProprietario;
-	}
-
-	@Column(name = "idModelo", nullable = false)
-	public int getIdModelo() {
-		return this.idModelo;
-	}
-
-	public void setIdModelo(int idModelo) {
-		this.idModelo = idModelo;
-	}
-
 	@Column(name = "uf", nullable = false, length = 2)
 	public String getUf() {
 		return this.uf;
@@ -65,5 +45,29 @@ public class Veiculos implements java.io.Serializable {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
+
+	@ManyToOne
+	@JoinColumn(name = "cpfProprietario")
+	private Proprietario cpfProprietario;
+
+	public Proprietario getCpfProprietario() {
+		return cpfProprietario;
+	}
+
+	public void setCpfProprietario(Proprietario cpfProprietario) {
+		this.cpfProprietario = cpfProprietario;
+	}
+
+	public Modelo getIdModelo() {
+		return idModelo;
+	}
+
+	public void setIdModelo(Modelo idModelo) {
+		this.idModelo = idModelo;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "idModelo")
+	private Modelo idModelo;
 
 }

@@ -6,6 +6,8 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,16 +17,21 @@ import javax.persistence.Table;
 @Table(name = "telefones", catalog = "hackathon")
 public class Telefones implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private TelefonesId id;
 	private int idTipoTelefone;
-
+	
 	public Telefones() {
 	}
 
-	public Telefones(TelefonesId id, int idTipoTelefone) {
+	/*public Telefones(TelefonesId id, int idTipoTelefone) {
 		this.id = id;
 		this.idTipoTelefone = idTipoTelefone;
-	}
+	}*/
 
 	@EmbeddedId
 

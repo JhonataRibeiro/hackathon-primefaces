@@ -5,7 +5,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.Collection;
+
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -60,5 +66,11 @@ public class Modelo implements java.io.Serializable {
 	public void setDescricaoModelo(String descricaoModelo) {
 		this.descricaoModelo = descricaoModelo;
 	}
+	
+	@OneToMany
+	 @JoinTable(name="MODELO_VEICULO",
+	 joinColumns=@JoinColumn(name="cpfProprietario"),
+	 inverseJoinColumns=@JoinColumn(name="cpfProprietario"))
+	 private Collection<Veiculos> veiculos;
 
 }

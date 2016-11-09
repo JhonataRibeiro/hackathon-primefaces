@@ -11,26 +11,20 @@
 </h:head>
 <h:body>
 	<h:form>
-		<p:panel header="Cadastro de agente">
+		<p:panel header="Cadastro de veiculos">
 			<h:panelGrid columns="2" columnClasses="label, value">
 				
-				<h:outputText value="Placa *" />
-				<p:inputText id="placa" value="#{veiculoMB.veiculos.placa}" />
-				
-				<h:outputText value="Cpf *" />
-				<p:inputText id="cpf" value="#{veiculoMB.veiculos.cpfProprietario}" />
-				
+				<p:outputLabel value="Propietario" for="propietario" />
+       			<p:autoComplete id="propietario" value="#{veiculoMB.veiculos.cpfProprietario}" completeMethod="#{veiculoMB.completePropietario(propiearioMB.propietario)}" />
+
 				<h:outputText value="Modelo *" />
 				<p:inputText id="modelo" value="#{veiculoMB.veiculos.idModelo}" />
-				
+
 				<h:outputText value="UF *" />
 				<p:inputText id="uf" value="#{veiculoMB.veiculos.uf}" />
-				
-				
-				<h:outputText value="Tempo de serviço *" />
-				<p:inputText id="tempoServico"
-					value="#{agenteMB.agente.tempoServico}" />
-				<p:commandButton value="Salvar" action="#{veiculoMB.incluir(veiculoMB.veiculos)}"></p:commandButton>
+
+				<p:commandButton value="Salvar"
+					action="#{veiculoMB.incluir(veiculoMB.veiculos)}"></p:commandButton>
 			</h:panelGrid>
 		</p:panel>
 	</h:form>

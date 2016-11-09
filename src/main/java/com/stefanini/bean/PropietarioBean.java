@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.stefanini.model.Proprietario;
-import com.stefanini.service.PropietarioService;
+import com.stefanini.service.ProprietarioService;
 
 @Named("propiearioMB")
 @SessionScoped
@@ -22,7 +22,7 @@ public class PropietarioBean implements Serializable{
 	Proprietario propietario;
 	
 	@Inject
-	PropietarioService propietarioService;
+	ProprietarioService propietarioService;
 	
 	public Proprietario getPropietario() {
 		return propietario;

@@ -14,6 +14,7 @@ public class VeiculosRepository {
 	private EntityManager manager;
 
 	public void incluir(Veiculos veiculos) {
+		System.out.println("called veiculos repository");
 		this.manager.persist(veiculos);
 	}
 
