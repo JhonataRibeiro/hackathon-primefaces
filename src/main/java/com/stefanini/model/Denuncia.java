@@ -50,5 +50,4 @@ public class Denuncia implements Serializable {
     public void setDenunciante(Denunciante denunciante) {
         this.denunciante = denunciante;
     }
-
 }

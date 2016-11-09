@@ -16,9 +16,6 @@ import javax.enterprise.context.SessionScoped;
 @SessionScoped
 public class AgenteBean implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Inject
