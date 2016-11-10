@@ -11,7 +11,7 @@ App.factory('AgenteService', function($http, API){
 			return $http.put(API+'agente/'+id, item);	
 		},
 		delete: function(id){
-			return $http.delete(API+'agente/'+id);
+			return $http.post(API+'agente/'+ id + '/delete');
 		}
 	}
 })

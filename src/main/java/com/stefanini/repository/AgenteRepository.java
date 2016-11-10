@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.stefanini.model.Agente;
+import com.stefanini.model.Infracoes;
 
 public class AgenteRepository {
 	
@@ -14,6 +15,10 @@ public class AgenteRepository {
 
 	public void incluir(Agente agente) {
 		this.manager.persist(agente);
+	}
+	
+	public void deleta(Integer id) {
+		this.manager.remove(this.manager.find(Agente.class, id));
 	}
 
 	public void altera(Agente agente) {

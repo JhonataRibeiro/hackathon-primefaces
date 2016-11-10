@@ -21,6 +21,10 @@ public class AgenteService {
 		agenteRepository.incluir(agente);
 	}
 	
+	public void deleta(Integer id) {
+		agenteRepository.deleta(id);
+	}
+	
 	public List<Agente> listar() {
 		return agenteRepository.lista();
 	}
