@@ -4,6 +4,7 @@ App.factory('AgenteService', function($http, API){
 			return $http.get(API+'agente');
 		},
 		create: function(item){
+			console.log("to create: ", item);
 			return $http.post(API+'agente', item);
 		},
 		update: function(item, id){

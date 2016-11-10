@@ -30,5 +30,16 @@ App.controller('AgenteCtrl', function($scope, $location, AgenteService,EnvioServ
 		EnvioService.addParametro(item);
 		$location.path('/editarAgente');
 	}
+	
+
+	$scope.newAgente = {};
+	
+	//Criar
+	$scope.criar = function(){
+		AgenteService.create($scope.newAgente);
+		$location.path('/');
+	}
+	
+	
 
 });
