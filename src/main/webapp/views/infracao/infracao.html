@@ -1,0 +1,29 @@
+<div class="row">
+	<h2>Cadastro de Infracao</h2>
+</div>
+<div class="row">
+	<form class="form-horizontal" ng-submit="cadastrar(tipo)">
+
+		<p>Selected: {{selected}}</p>
+		<ui-select ng-model="selected.nome" theme="selectize"
+			style="width: 300px;"
+			title="Choose a country"> <ui-select-match
+			placeholder="Select or search a country in the list...">{{$select.selected.nome}}</ui-select-match>
+		<ui-select-choices
+			repeat="agente in agentes | filter: $select.search">
+		<span ng-bind-html="agente.nome | highlight: $select.search"></span>
+		</ui-select-choices> </ui-select>
+		
+		<input class="col-sm-6" ng-value="result" ng-model="endereco" type="text" class="form-control" />
+		<div id="map_canvas" ui-map="myMap"
+			 style="height:400px;width:1130px;border:2px solid #777777;margin:3px; border:1px solid"
+			 ui-options="mapOptions"
+			 ui-event="{'map-idle' : 'onMapIdle()' , 'map-dragend' : 'draged()'}"
+		>
+
+		<div class="form-group">
+			<button class="btn btn-success">Cadastrar</button>
+			<a href="#/" class="btn btn-warning">Cancelar</a>
+		</div>
+	</form>
+</div>

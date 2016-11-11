@@ -1,39 +1,63 @@
 package com.stefanini.model;
+// Generated 07/11/2016 12:03:46 by Hibernate Tools 4.3.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
-public class Infracoes{
+@Table(name = "infracoes", catalog = "hackathon")
+public class Infracoes implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 221337687967481848L;
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idInfracao", unique = true, nullable = false)
 	private Integer idInfracao;
 	
-	@ManyToOne
-	@JoinColumn(name = "idAgente")
-	private Agente idAgente;
+	@OneToOne
+	@JoinColumn(name="cpfAgente")
+	private Agente agente;
 	
-	@ManyToOne
-	@JoinColumn(name = "idLocalInfracao")
-	private Localinfracao idLocalInfracao;
+	@OneToOne
+	@JoinColumn(name="idLocalInfracao")
+	private Localinfracao localInfracao;
 	
-	@ManyToOne
-	@JoinColumn(name = "idTipoInfracao")
-	private Tipoinfracao idTipoInfracao;
+	@OneToOne
+	@JoinColumn(name="idTipoInfracao")
+	private Tipoinfracao tipoInfracao;
 	
-	@ManyToOne
-	@JoinColumn(name = "placa")
-	private Veiculos placa;
+	@OneToOne
+	@JoinColumn(name="placa")
+	private Veiculos veiculo;
 	
+	@Column(name = "velocidade")
 	private Integer velocidade;
-	
-	// Gets e Sets
 
+	public Infracoes() {
+		
+	}
+	
+	public Infracoes(Integer idInfracao, Agente agente, Localinfracao localInfracao, Tipoinfracao tipoInfracao,
+			Veiculos veiculo, Integer velocidade) {
+		this.idInfracao = idInfracao;
+		this.agente = agente;
+		this.localInfracao = localInfracao;
+		this.tipoInfracao = tipoInfracao;
+		this.veiculo = veiculo;
+		this.velocidade = velocidade;
+	}
+	
 	public Integer getIdInfracao() {
 		return idInfracao;
 	}
@@ -42,36 +66,36 @@ public class Infracoes{
 		this.idInfracao = idInfracao;
 	}
 
-	public Agente getIdAgente() {
-		return idAgente;
+	public Agente getAgente() {
+		return agente;
 	}
 
-	public void setIdAgente(Agente idAgente) {
-		this.idAgente = idAgente;
+	public void setAgente(Agente agente) {
+		this.agente = agente;
 	}
 
-	public Localinfracao getIdLocalInfracao() {
-		return idLocalInfracao;
+	public Localinfracao getLocalInfracao() {
+		return localInfracao;
 	}
 
-	public void setIdLocalInfracao(Localinfracao idLocalInfracao) {
-		this.idLocalInfracao = idLocalInfracao;
+	public void setLocalInfracao(Localinfracao localInfracao) {
+		this.localInfracao = localInfracao;
 	}
 
-	public Tipoinfracao getIdTipoInfracao() {
-		return idTipoInfracao;
+	public Tipoinfracao getTipoInfracao() {
+		return tipoInfracao;
 	}
 
-	public void setIdTipoInfracao(Tipoinfracao idTipoInfracao) {
-		this.idTipoInfracao = idTipoInfracao;
+	public void setTipoInfracao(Tipoinfracao tipoInfracao) {
+		this.tipoInfracao = tipoInfracao;
 	}
 
-	public Veiculos getPlaca() {
-		return placa;
+	public Veiculos getVeiculo() {
+		return veiculo;
 	}
 
-	public void setPlaca(Veiculos placa) {
-		this.placa = placa;
+	public void setVeiculo(Veiculos veiculo) {
+		this.veiculo = veiculo;
 	}
 
 	public Integer getVelocidade() {

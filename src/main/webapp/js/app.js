@@ -1,7 +1,11 @@
 var App = angular.module('App', [
 'ngRoute',
 'controllers',
-'services'
+'services',
+'ngSanitize', 
+'ui.select',
+'ui.event',
+'ui.map'
 ]);
 
 App.config(function($routeProvider){
@@ -25,6 +29,11 @@ App.config(function($routeProvider){
 	.when('/editarAgente', {
 		templateUrl: 'views/agente/editarAgente.html',
 		controller: 'AgenteCtrl'
+	})
+	
+	.when('/novaInfracao', {
+		templateUrl: 'views/infracao/infracao.html',
+		controller: 'InfracaoCtrl'
 	})
 });
 

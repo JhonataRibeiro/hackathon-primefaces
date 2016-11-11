@@ -11,22 +11,22 @@ public class InfracoesRepository {
 
 	@Inject
 	private EntityManager manager;
-
-	public void incluir(Infracoes infracoes) {
-		this.manager.persist(infracoes);
+	
+	public void incluir(Infracoes infracao) {
+		this.manager.persist(infracao);
 	}
 
-	public void altera(Infracoes infracoes) {
-		this.manager.merge(infracoes);
+	public void altera(Infracoes infracao) {
+		this.manager.merge(infracao);
 	}
 
 	public Infracoes busca(Integer id) {
 		return this.manager.find(Infracoes.class, id);
 	}
 
-	// todo trocar model
 	public List<Infracoes> lista() {
-		return this.manager.createQuery("select c from Infracoes c", Infracoes.class).getResultList();
+		return this.manager.createQuery("select c from Infracao c", Infracoes.class)
+				.getResultList();
 	}
-
+	
 }
