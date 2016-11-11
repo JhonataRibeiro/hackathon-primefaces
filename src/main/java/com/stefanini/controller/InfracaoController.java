@@ -24,7 +24,16 @@ import com.stefanini.service.TipoInfracaoService;
 @Path("/infracoes")
 @RequestScoped
 public class InfracaoController {
-
+	
+	@Inject
+	private Infracoes infracao;
+	
+	@Inject
+	private InfracoesService infracoesService;
+	
+	@Inject
+	private AgenteService agenteService;
+	
 	@Inject
 	private LocalInfracaoService localInfracaoService;
 	
@@ -49,6 +58,29 @@ public class InfracaoController {
 			System.out.println("called");
 			return tipoInfracaoService.listar();
 		}
+		
+		//Listar Tipos de infrações
+				@GET
+				@Path("/cadastra/agente/{idAgente}/local/{idLocalInfracao}/tipo/{idTipoInfracao}")
+				@Produces(MediaType.APPLICATION_JSON)
+				public void cadastra(@PathParam("idAgente") Integer idAgente,@PathParam("idLocalInfracao") Integer idLocalInfracao,@PathParam("idTipoInfracao") Integer idTipoInfracao) {
+					
+					System.out.println("called idAgente: " + idAgente);
+					agenteService.buscar(idAgente);
+					
+					System.out.println("called idTipoInfracao: " + idTipoInfracao);
+					tipoInfracaoService.busca(idTipoInfracao);
+					
+					System.out.println("called idLocalInfracao: " + idLocalInfracao);
+					localInfracaoService.busca(idLocalInfracao);
+					
+					infracao.setAgente(agenteService.buscar(idAgente));
+					infracao.setTipoInfracao(tipoInfracaoService.busca(idTipoInfracao));
+					infracao.setLocalInfracao(localInfracaoService.busca(idLocalInfracao));
+					infracao.setVelocidade(170);
+					infracoesService.incluir(infracao);
+					
+				}
 
 
 }

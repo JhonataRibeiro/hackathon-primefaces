@@ -28,6 +28,14 @@ App.controller('InfracaoCtrl', function($scope, InfracaoService, AgenteService) 
 		console.log("data", data);
 	});
 	
+	$scope.setLocal = function(local){
+		console.log("calld set local");
+		console.log("latitude:",local);
+		$scope.setAddres(local.latitude,local.longitude);
+		geoCode(local.latitude,local.longitude);
+		
+	}
+	
 	InfracaoService.listTipoInfracoes().then(function(data) {
 		$scope.TipoInfracoes = data.data;
 		console.log("tipo de infracoes data:", $scope.localInfracoes);
@@ -37,6 +45,28 @@ App.controller('InfracaoCtrl', function($scope, InfracaoService, AgenteService) 
 	}, function(data) {
 		console.log("data", data);
 	});
+	
+	$scope.cadastra = function(){
+		InfracaoService.cadastra().then(function(data) {
+			//$scope.TipoInfracoes = data.data;
+			console.log("sucesso:", data);
+			if (data.data.length == 0) {
+				$scope.notFound = true;
+			}
+		}, function(data) {
+			console.log("data", data);
+		});
+	}
+	
+	$scope.salvar = function(){
+		console.log("salvar: ", $scope.infracao);
+		InfracaoService.cadastra($scope.infracao).then(function(data){
+			console.log("retorno:",data);
+		},function(err){
+			
+		});
+		
+	}
 	
 	
 	
@@ -48,6 +78,17 @@ App.controller('InfracaoCtrl', function($scope, InfracaoService, AgenteService) 
 	$scope.lng = 0;
 	$scope.result = '';
 
+	/*vm.getCurrentLocation = (function() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				$scope.lat = position.coords.latitude;
+				$scope.lng = position.coords.longitude;
+				$scope.setAddres($scope.lat, $scope.lng)
+				console.info("Position: " + $scope.lat + " " + $scope.lng);
+			})
+		}
+	}());*/
+	
 	vm.getCurrentLocation = (function() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
@@ -58,6 +99,22 @@ App.controller('InfracaoCtrl', function($scope, InfracaoService, AgenteService) 
 			})
 		}
 	}());
+	
+	/*$scope.getCurrentLocation2 = function() {
+		console.log("called getCurrent");
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				$scope.lat = position.coords.latitude;
+				$scope.lng = position.coords.longitude;
+				$scope.setAddres($scope.lat, $scope.lng)
+				console.info("Position: " + $scope.lat + " " + $scope.lng);
+			})
+		}
+	};*/
+	
+	$scope.teste = function(){
+		console.log("chamou");
+	}
 
 	var newMap = new google.maps.LatLng(-15.7942, -47.8821);
 
@@ -105,7 +162,7 @@ App.controller('InfracaoCtrl', function($scope, InfracaoService, AgenteService) 
 				}
 			} else {
 				console.log('Geocoder failed due to: ' + status);
-				$scope.endereco = 'Ops, ocorreu um erro, contate o administrador do sistema';
+				$scope.endereco = 'Mapa não caregado';
 
 			}
 		});
