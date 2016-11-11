@@ -3,6 +3,13 @@ App.factory('InfracaoService', function($http, API){
 		list: function(){
 			return $http.get(API+'agente');
 		},
+		listLocalInfracoes: function(){
+			return $http.get(API+'infracoes/local');
+		},
+
+		listTipoInfracoes: function(){
+			return $http.get(API+'infracoes/tipo');
+		},
 		create: function(item){
 			console.log("to create: ", item);
 			return $http.post(API+'agente', item);

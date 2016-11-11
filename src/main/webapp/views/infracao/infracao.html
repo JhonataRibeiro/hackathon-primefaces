@@ -4,26 +4,47 @@
 <div class="row">
 	<form class="form-horizontal" ng-submit="cadastrar(tipo)">
 
-		<p>Selected: {{selected}}</p>
-		<ui-select ng-model="selected.nome" theme="selectize"
-			style="width: 300px;"
-			title="Choose a country"> <ui-select-match
-			placeholder="Select or search a country in the list...">{{$select.selected.nome}}</ui-select-match>
-		<ui-select-choices
-			repeat="agente in agentes | filter: $select.search">
-		<span ng-bind-html="agente.nome | highlight: $select.search"></span>
-		</ui-select-choices> </ui-select>
+		<p>infracao: {{infracao}}</p>
+		<p>Agente</p>
+		<ui-select ng-model="infracao.agente" theme="selectize"
+			style="width: 300px;" title="Choose a country"> <ui-select-match
+			placeholder="Selecione o agente...">{{$select.selected.nome}}</ui-select-match>
+		<ui-select-choices repeat="agente in agentes | filter: $select.search">
+		<span ng-bind-html="agente.nome | highlight: $select.search"></span> </ui-select-choices>
+		</ui-select>
 		
-		<input class="col-sm-6" ng-value="result" ng-model="endereco" type="text" class="form-control" />
+		<p>Local da infração</p>
+		<ui-select ng-model="infracao.localInfracao" theme="selectize"
+			style="width: 300px;" title="Choose a country"> <ui-select-match
+			placeholder="Selecione o local da infração...">{{$select.selected.descricaoLocalInfracao}}</ui-select-match>
+		<ui-select-choices repeat="local in localInfracoes | filter: $select.search">
+		<span ng-bind-html="local.descricaoLocalInfracao | highlight: $select.search"></span> </ui-select-choices>
+		</ui-select>
+		
+		<p>Tipo de infração</p>
+		<ui-select ng-model="infracao.tipoInfracao" theme="selectize"
+			style="width: 300px;" title="Tipo da infração"> <ui-select-match
+			placeholder="Select or search a country in the list...">{{$select.selected.descricaoLocalInfracao}}</ui-select-match>
+		<ui-select-choices repeat="tipo in tipoInfracoes | filter: $select.search">
+		<span ng-bind-html="tipo.descricaoLocalInfracao | highlight: $select.search"></span> </ui-select-choices>
+		</ui-select>
+		
+		<br/>
+		<p>Local da infração</p>
+		<input type="text" ng-model="infracao.localInfracacao.descricaoLocalInfracao" class="form-control" placeholder="descreva a localização da infração">
+		<br/>
+		<input type="text" ng-model="infracao.localInfracacao.velocidadePermitida" class="form-control" placeholder="Velocidade Permitida">
+		<input class="col-sm-6" ng-value="result" ng-model="endereco"
+			type="text" class="form-control" />
+			<br/>
 		<div id="map_canvas" ui-map="myMap"
-			 style="height:400px;width:1130px;border:2px solid #777777;margin:3px; border:1px solid"
-			 ui-options="mapOptions"
-			 ui-event="{'map-idle' : 'onMapIdle()' , 'map-dragend' : 'draged()'}"
-		>
+			style="height: 400px; width: 1130px; border: 2px solid #777777; margin: 3px; border: 1px solid"
+			ui-options="mapOptions"
+			ui-event="{'map-idle' : 'onMapIdle()' , 'map-dragend' : 'draged()'}">
 
-		<div class="form-group">
-			<button class="btn btn-success">Cadastrar</button>
-			<a href="#/" class="btn btn-warning">Cancelar</a>
-		</div>
+			<div class="form-group">
+				<button class="btn btn-success">Cadastrar</button>
+				<a href="#/" class="btn btn-warning">Cancelar</a>
+			</div>
 	</form>
 </div>

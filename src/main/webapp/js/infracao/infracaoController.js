@@ -1,7 +1,12 @@
 App.controller('InfracaoCtrl', function($scope, InfracaoService, AgenteService) {
 
 	$scope.agentes = [];
-	$scope.selected = {};
+	$scope.localInfracoes = [];
+	$scope.tipoInfracoes = [];
+	$scope.infracao = {};
+	$scope.infracao.agente = {};
+	$scope.infracao.localInfracao = {};
+	$scope.infracao.tipoInfracao = {};
 	$scope.endereco = '';
 	AgenteService.list().then(function(data) {
 		$scope.agentes = data.data;
@@ -12,6 +17,29 @@ App.controller('InfracaoCtrl', function($scope, InfracaoService, AgenteService) 
 	}, function(data) {
 		console.log("data", data);
 	});
+	
+	InfracaoService.listLocalInfracoes().then(function(data) {
+		$scope.localInfracoes = data.data;
+		console.log("local infracoes data:", $scope.localInfracoes);
+		if (data.data.length == 0) {
+			$scope.notFound = true;
+		}
+	}, function(data) {
+		console.log("data", data);
+	});
+	
+	InfracaoService.listTipoInfracoes().then(function(data) {
+		$scope.TipoInfracoes = data.data;
+		console.log("tipo de infracoes data:", $scope.localInfracoes);
+		if (data.data.length == 0) {
+			$scope.notFound = true;
+		}
+	}, function(data) {
+		console.log("data", data);
+	});
+	
+	
+	
 	
 	var vm = this;
 
