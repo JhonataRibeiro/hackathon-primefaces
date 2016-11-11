@@ -25,7 +25,7 @@ public class InfracoesRepository {
 	}
 
 	public List<Infracoes> lista() {
-		return this.manager.createQuery("select c from Infracao c", Infracoes.class)
+		return this.manager.createQuery("select c from Infracoes c", Infracoes.class)
 				.getResultList();
 	}
 	

@@ -23,6 +23,15 @@ public class Agente implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer idAgente;
+	private Integer cpfAgente;
+	public Integer getCpfAgente() {
+		return cpfAgente;
+	}
+
+	public void setCpfAgente(Integer cpfAgente) {
+		this.cpfAgente = cpfAgente;
+	}
+
 	private String nome;
 	private Date dtContratacao;
 	private Integer tempoServico;

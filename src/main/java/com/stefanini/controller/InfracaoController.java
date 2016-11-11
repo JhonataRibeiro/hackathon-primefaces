@@ -46,6 +46,7 @@ public class InfracaoController {
 		@Path("/tipo")
 		@Produces(MediaType.APPLICATION_JSON)
 		public List<Tipoinfracao> getInfracao() {
+			System.out.println("called");
 			return tipoInfracaoService.listar();
 		}
 
