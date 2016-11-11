@@ -24,9 +24,9 @@
 		<p>Tipo de infração</p>
 		<ui-select ng-model="infracao.tipoInfracao" theme="selectize"
 			style="width: 300px;" title="Tipo da infração"> <ui-select-match
-			placeholder="Select or search a country in the list...">{{$select.selected.descricaoLocalInfracao}}</ui-select-match>
-		<ui-select-choices repeat="tipo in tipoInfracoes | filter: $select.search">
-		<span ng-bind-html="tipo.descricaoLocalInfracao | highlight: $select.search"></span> </ui-select-choices>
+			placeholder="Select or search a country in the list...">{{$select.selected.descricaoTipoInfracao}}</ui-select-match>
+		<ui-select-choices repeat="tipo in TipoInfracoes | filter: $select.search">
+		<span ng-bind-html="tipo.descricaoTipoInfracao | highlight: $select.search"></span> </ui-select-choices>
 		</ui-select>
 		
 		<br/>
