@@ -20,6 +20,11 @@ public class InfracoesService {
     public void incluir(Infracoes infracao){
     	infracaoRepository.incluir(infracao);
     }
+    
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public void busca(Integer id){
+    	infracaoRepository.busca(id);
+    }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<Infracoes> listar() {

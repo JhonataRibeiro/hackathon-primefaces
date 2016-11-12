@@ -18,6 +18,10 @@ public class TipoInfracaoRepository {
 	public void incluir(Tipoinfracao tipoinfracao) {
 		this.manager.persist(tipoinfracao);
 	}
+	
+	public Tipoinfracao busca(Integer id) {
+		return this.manager.find(Tipoinfracao.class,id);
+	}
 		
 	public List<Tipoinfracao> lista() {
 		return this.manager.createQuery("select c from Tipoinfracao c", Tipoinfracao.class)

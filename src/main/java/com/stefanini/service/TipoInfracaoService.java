@@ -17,6 +17,11 @@ public class TipoInfracaoService {
 
 	@Inject
     private TipoInfracaoRepository tipoInfracaoRepository;
+	
+	 @TransactionAttribute(TransactionAttributeType.REQUIRED)
+	    public Tipoinfracao busca(Integer id){
+	    	return tipoInfracaoRepository.busca(id);
+	    }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<Tipoinfracao> listar() {

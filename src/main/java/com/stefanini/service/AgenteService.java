@@ -25,6 +25,10 @@ public class AgenteService {
 		agenteRepository.deleta(id);
 	}
 	
+	public Agente buscar(Integer id) {
+		return agenteRepository.busca(id);
+	}
+	
 	public List<Agente> listar() {
 		return agenteRepository.lista();
 	}

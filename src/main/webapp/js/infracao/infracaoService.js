@@ -10,6 +10,13 @@ App.factory('InfracaoService', function($http, API){
 		listTipoInfracoes: function(){
 			return $http.get(API+'infracoes/tipo');
 		},
+		
+		cadastra: function(infracao){
+			console.log("cadastra infracao: ",infracao);
+			return $http.get(API+'infracoes/cadastra/agente/'+ infracao.agente.idAgente + '/local/' +infracao.localInfracao.idLocalInfracao + '/tipo/' + infracao.tipoInfracao.idTipoInfracao );
+			
+		},
+		
 		create: function(item){
 			console.log("to create: ", item);
 			return $http.post(API+'agente', item);

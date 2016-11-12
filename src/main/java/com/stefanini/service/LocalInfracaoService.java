@@ -20,6 +20,11 @@ public class LocalInfracaoService {
     public void incluir(Localinfracao localInfracao){
     	localInfracaoRepository.incluir(localInfracao);
     }
+    
+    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    public Localinfracao busca(Integer id){
+    	return localInfracaoRepository.busca(id);
+    }
 
     @TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public List<Localinfracao> listar() {
