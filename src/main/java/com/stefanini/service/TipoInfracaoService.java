@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import com.stefanini.model.Localinfracao;
 import com.stefanini.model.Proprietario;
-import com.stefanini.model.Tipoinfracao;
+import com.stefanini	.model.Tipoinfracao;
 import com.stefanini.repository.TipoInfracaoRepository;
 
 @Stateless

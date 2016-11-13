@@ -12,12 +12,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.stefanini.model.Agente;
-import com.stefanini.model.Infracoes;
+import com.stefanini.model.Infracao;
 import com.stefanini.model.Localinfracao;
 import com.stefanini.model.Tipoinfracao;
 import com.stefanini.service.AgenteService;
-import com.stefanini.service.InfracoesService;
+import com.stefanini.service.InfracaoService;
 import com.stefanini.service.LocalInfracaoService;
 import com.stefanini.service.TipoInfracaoService;
 
@@ -26,10 +25,10 @@ import com.stefanini.service.TipoInfracaoService;
 public class InfracaoController {
 	
 	@Inject
-	private Infracoes infracao;
+	private Infracao infracao;
 	
 	@Inject
-	private InfracoesService infracoesService;
+	private InfracaoService infracaoService;
 	
 	@Inject
 	private AgenteService agenteService;
@@ -78,7 +77,7 @@ public class InfracaoController {
 					infracao.setTipoInfracao(tipoInfracaoService.busca(idTipoInfracao));
 					infracao.setLocalInfracao(localInfracaoService.busca(idLocalInfracao));
 					infracao.setVelocidade(170);
-					infracoesService.incluir(infracao);
+					infracaoService.incluir(infracao);
 					
 				}
 

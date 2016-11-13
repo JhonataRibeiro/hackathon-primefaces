@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<p:panel header="Cadastro de agente">
+			<h:panelGrid columns="2" columnClasses="label, value">
+				<h:outputText value="Cpf *" />
+				<p:inputText id="cpf" value="#{propiearioMB.propietario.cpfProprietario}" />
+				
+				<h:outputText value="Nome *" />
+				<p:inputText id="nome" value="#{propiearioMB.propietario.nome}" />
+				
+				<h:outputText value="Endereço *" />
+				<p:inputText id="endereco" value="#{propiearioMB.propietario.endereco}" />
+				
+				<h:outputText value="Bairro *" />
+				<p:inputText id="bairro" value="#{propiearioMB.propietario.bairro}" />
+				
+				<h:outputText value="Cidade *" />
+				<p:inputText id="cidade" value="#{propiearioMB.propietario.cidade}" />
+				
+				<h:outputText value="Data de contratação *" />
+				<p:calendar id="dtContratacao"
+					value="#{agenteMB.agente.dtContratacao}" showOn="button" />
+				
+				<h:outputText value="Tempo de serviço *" />
+				<p:inputText id="tempoServico"
+					value="#{agenteMB.agente.tempoServico}" />
+				<p:commandButton value="Salvar" action="#{agenteMB.incluir(agenteMB.agente)}"></p:commandButton>
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
