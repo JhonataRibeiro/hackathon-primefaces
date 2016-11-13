@@ -15,7 +15,6 @@ public class VeiculoService {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	
 	public void incluir(Veiculo veiculos) {
-		System.out.println("called veiculos sevice");
 		veiculoRepository.incluir(veiculos);
 	}
 
